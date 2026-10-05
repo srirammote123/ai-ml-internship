@@ -27,37 +27,46 @@ Task 2 builds a **binary classification model** to predict whether a Titanic pas
 - Preprocesses numerical features with median imputation and standard scaling.
 - Preprocesses categorical features with most-frequent imputation and one-hot encoding.
 - Trains a **Logistic Regression** classifier using Scikit-learn.
-- Evaluates the model using:
-  - Accuracy
-  - Precision
-  - Recall
-  - F1-score
-  - Classification report
-  - Confusion matrix
-
-### Features
-
-The model uses:
-
-- Age
-- Fare
-- Passenger class
-- Number of siblings/spouses aboard
-- Number of parents/children aboard
-- Sex
-- Embarkation port
+- Evaluates the model using Accuracy, Precision, Recall, F1-score, classification report, and confusion matrix.
 
 ### Run Task 2
 
-Install dependencies:
-
     pip install -r requirements.txt
-
-Run:
-
     python task_2_machine_learning_model.py
 
 A confusion-matrix image is generated in task_2_outputs/.
+
+## Task 3: Prediction Application
+
+Task 3 provides a command-line application that accepts passenger information and uses the trained Logistic Regression pipeline to predict Titanic survival.
+
+### Implementation
+
+- Accepts age, fare, passenger class, family counts, sex, and embarkation port.
+- Validates numeric values and allowed categories.
+- Rejects invalid, non-numeric, negative, or out-of-range inputs.
+- Trains the Task 2 model pipeline on the Titanic dataset before making predictions.
+- Displays a clear **SURVIVE / NOT TO SURVIVE** prediction.
+- Displays the estimated survival probability.
+- Supports making multiple predictions in one run.
+- Handles Ctrl+C, end-of-input, and unexpected runtime errors safely.
+
+### Run Task 3
+
+    pip install -r requirements.txt
+    python task_3_prediction_app.py
+
+### Example input
+
+    Age (0-100): 25
+    Fare (0-10000): 50
+    Passenger class (1, 2, or 3): 2
+    Siblings/spouses aboard (0-20): 0
+    Parents/children aboard (0-20): 0
+    Sex (male/female): female
+    Embarked (C/Q/S): S
+
+The application then displays the predicted outcome and survival probability.
 
 ## Project structure
 
@@ -65,7 +74,8 @@ A confusion-matrix image is generated in task_2_outputs/.
     ├── README.md
     ├── requirements.txt
     ├── task_1_data_exploration.py
-    └── task_2_machine_learning_model.py
+    ├── task_2_machine_learning_model.py
+    └── task_3_prediction_app.py
 
 ### Task 1 Visualizations
 
