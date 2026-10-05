@@ -15,47 +15,64 @@ This project completes the first internship task:
 
 The analysis script downloads the CSV from a public GitHub mirror and loads it directly with Pandas.
 
-### Project structure
+## Task 2: Machine Learning Model
 
-```
-ai-ml-internship/
-├── README.md
-├── requirements.txt
-└── task_1_data_exploration.py
-```
+Task 2 builds a **binary classification model** to predict whether a Titanic passenger survived.
 
-### Run the task
+### Implementation
+
+- Uses the cleaned Titanic dataset from Task 1.
+- Splits the data into **80% training** and **20% testing** sets.
+- Uses a **stratified split** with random_state=42.
+- Preprocesses numerical features with median imputation and standard scaling.
+- Preprocesses categorical features with most-frequent imputation and one-hot encoding.
+- Trains a **Logistic Regression** classifier using Scikit-learn.
+- Evaluates the model using:
+  - Accuracy
+  - Precision
+  - Recall
+  - F1-score
+  - Classification report
+  - Confusion matrix
+
+### Features
+
+The model uses:
+
+- Age
+- Fare
+- Passenger class
+- Number of siblings/spouses aboard
+- Number of parents/children aboard
+- Sex
+- Embarkation port
+
+### Run Task 2
 
 Install dependencies:
 
-```bash
-pip install -r requirements.txt
-```
+    pip install -r requirements.txt
 
 Run:
 
-```bash
-python task_1_data_exploration.py
-```
+    python task_2_machine_learning_model.py
 
-The script will:
+A confusion-matrix image is generated in task_2_outputs/.
 
-- Load the dataset with Pandas.
-- Display shape, columns, data types, summary statistics, and missing values.
-- Remove duplicate rows.
-- Validate and correct invalid values.
-- Fill missing numerical and categorical values using appropriate strategies.
-- Print a before/after cleaning summary.
-- Generate and save basic visualizations in a `plots/` directory.
+## Project structure
 
-### Visualizations
+    ai-ml-internship/
+    ├── README.md
+    ├── requirements.txt
+    ├── task_1_data_exploration.py
+    └── task_2_machine_learning_model.py
 
-The analysis produces:
+### Task 1 Visualizations
+
+Task 1 produces:
 
 - Survival count
 - Age distribution
 - Survival by passenger class
 - Gender vs survival
 - Fare distribution
-
-This provides a basic understanding of the dataset before any machine-learning model is built.
